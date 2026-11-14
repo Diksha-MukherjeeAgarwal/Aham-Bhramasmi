@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "skills": {
+    "code-review-skill": {
+      "source": "awesome-skills/code-review-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "f2725b0f6247a5cfc876198c64c9b14a06edc733f57d1007cbfe37c6bcca5d93"
+    }
+  }
+}
