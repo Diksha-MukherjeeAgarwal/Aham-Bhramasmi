@@ -878,8 +878,8 @@ Three tracks, one contract: the **engine** was written first and stays dependenc
 
 | | Member |
 |:--:|---|
-| 1 | **Diksha Mukherjee Agarwal** · [@Diksha-MukherjeeAgarwal](https://github.com/Diksha-MukherjeeAgarwal) |
-| 2 | **MD Mamun** · [@Md-Mamun-00](https://github.com/Md-Mamun-00) |
+| 1 | **Diksha Mukherjee Agarwal** |
+| 2 | **MD Mamun** |
 | 3 | **Sofiur Rahaman** |
 | 4 | **Anumitra Saha** |
 | 5 | **Drishan Roy** |
