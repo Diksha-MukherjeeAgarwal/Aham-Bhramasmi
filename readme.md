@@ -718,12 +718,8 @@ Aham-Bhramasmi/
 │   ├── Datasets/                  # NASA night-lights stills, 2012 + 2023 (8K, 16:9)
 │   └── icon/                      # GitHub, lock, lock-open glyphs
 ├── frontend/
-│   ├── dist/                      # production build: 5 routes, data.json, frames, 3D chunk
 │   ├── script/index.js            # reserved for the landing shell
 │   ├── styles/index.css           # landing-shell styles
-│   ├── blind-demo.js              # Playwright screen-recording harness
-│   └── blind-demo-enhanced.js     # + key-press and live-region overlays
-├── blind-demo-output/             # .webm recordings of the screen-reader walkthrough
 ├── src/modules/
 │   ├── audio/                     # audio module scaffolding
 │   └── vision/                    # computer-vision module scaffolding
@@ -745,31 +741,16 @@ timeline
     section Site
         5 routes : Listen · How it works · Docs · Accessibility · About
         Stack : React 18 · Vite 5 · three.js · Web Audio
-    section Proof
-        Recordings : Playwright walkthroughs
-        References : 8 DOI papers
+    section References
+        Sources : 8 DOI papers
 ```
 
----
 
-## 🧪 Testing the part that matters
+## 🧪 Accessibility checks
 
-`blind-demo.js` and `blind-demo-enhanced.js` drive the built site with **Playwright**, inject an overlay that shows **every key press** and **the exact text of the live region**, then record the session to `blind-demo-output/*.webm`. That is how we checked the live-region behaviour on camera instead of on vibes.
+The keyboard and screen-reader checklist below is a manual QA guide. Automated browser-recording harnesses are kept out of the submission; accessibility claims should be confirmed with real assistive technology and user testing.
 
-```bash
-cd frontend
-npm install
-npx playwright install chromium
-# in another terminal, serve the build at :4173
-node blind-demo-enhanced.js
-```
-
-| `blind-demo.js` | `blind-demo-enhanced.js` |
-|---|---|
-| Boots the site, replays a keyboard-only session, records video | Same, **plus** a key-press badge, a live-region mirror and an audio indicator |
-
-What these recordings prove: the announcements fire, the focus order holds, nothing is colour-only.
-What they do **not** prove: that a blind listener finds the piece learnable. That needs **real user testing**, which is the first item on our roadmap.
+Real user testing with blind and low-vision listeners remains the first item on our roadmap.
 
 Manual pass before every push:
 

@@ -40,23 +40,31 @@ $RECYCLE.BIN/
 **/dist/
 **/.vite/
 
-# Local Vercel project metadata
+# Local deployment metadata
 **/.vercel/
 
-# Playwright reports and generated screen-reader demo recordings
+# Optional local-only browser demo harness and generated artifacts
 **/playwright-report/
 **/test-results/
 /blind-demo-output/
+/frontend/blind-demo*.js
 
 # Local environment variables and logs
 .env
 .env.*
 !.env.example
+!.env.*.example
+
+# Logs and test/build artifacts
 *.log
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
+coverage/
 
-# macOS metadata
+# OS metadata and agent-only customization
 .DS_Store
+._*
+/.agents/
+/skills-lock.json
 
