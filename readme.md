@@ -692,13 +692,13 @@ npm install
 npm run build      # emits frontend/dist
 ```
 
-Keep `base: "./"` in `vite.config.js` so the build also works under a project subpath such as `/Aham-Bhramasmi/`. The React/Vite source that produces the bundle lives in the team's working tree; the shipped `frontend/dist` is what runs here.
+Keep `base: "./"` in `vite.config.js` so the build also works under a project subpath such as `/Aham-Bhramasmi/`. The React/Vite source is included in this repository; `npm run build` generates `frontend/dist`.
 
 ### Deploy
 
 | Target | How |
 |---|---|
-| **Vercel** (current live demo) | Project config is in `frontend/.vercel/project.json`; build `frontend/`, serve `frontend/dist` |
+| **Vercel** (current live demo) | Link the `frontend/` project and serve `frontend/dist`; local Vercel metadata is intentionally not tracked |
 | **GitHub Pages** | Publish `frontend/dist` on the Pages branch or via a Pages workflow |
 
 After the first build the site is fully local: no CDN, no external fonts, and no network calls beyond the files in `public/`.
@@ -709,21 +709,22 @@ After the first build the site is fully local: no CDN, no external fonts, and no
 
 ```text
 Aham-Bhramasmi/
-├── index.html                     # landing shell · header, night-lights still, footer
-├── engine.js                      # ⭐ the whole sonification engine — one file, zero deps
+├── .gitignore
+├── engine.js                      # dependency-free sonification engine
+├── assets/
+│   └── Datasets/                  # NASA night-lights stills, 2012 + 2023 (8K, 16:9)
 ├── data/
 │   └── processed/
 │       └── earth_jukebox_results  # CV output: 16 × 16 grid → 32 playable regions
-├── assets/
-│   ├── Datasets/                  # NASA night-lights stills, 2012 + 2023 (8K, 16:9)
-│   └── icon/                      # GitHub, lock, lock-open glyphs
 ├── frontend/
-│   ├── script/index.js            # reserved for the landing shell
-│   ├── styles/index.css           # landing-shell styles
-├── src/modules/
-│   ├── audio/                     # audio module scaffolding
-│   └── vision/                    # computer-vision module scaffolding
-└── readme.md                      # you are here
+│   ├── README.md                  # install, build, and deployment instructions
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vite.config.js
+│   ├── public/                    # runtime data and image assets
+│   └── src/                       # five-route accessible sonification app
+└── readme.md                      # project overview, mapping, data, and run instructions
 ```
 
 ```mermaid
@@ -876,7 +877,7 @@ Three tracks, one contract: the **engine** was written first and stays dependenc
 
 **Aham-Bhramasmi**
 
-| | Member |
+├── engine.js                      # dependency-free sonification engine
 |:--:|---|
 | 1 | **Diksha Mukherjee Agarwal** |
 | 2 | **MD Mamun** |

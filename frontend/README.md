@@ -4,8 +4,8 @@ Vite + React 18 site for the Night Lights sonification engine. It turns the bigg
 changes between two NASA night-lights frames into a short piece of music, then lets
 you inspect every note in text.
 
-This folder is self-contained. The original root-level engine and page are left
-untouched.
+This folder contains the production React/Vite site. The dependency-free
+standalone sonification engine remains at the repository root.
 
 ## Requirements
 
