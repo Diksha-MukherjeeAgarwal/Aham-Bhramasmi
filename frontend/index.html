@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="Earth Jukebox: Change Mode turns the biggest changes in NASA night-lights frames into music you can explore with the keyboard."
+    />
+    <meta name="application-name" content="Earth Jukebox" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#06090d" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#eef1f4" />
+    <link rel="canonical" href="https://diksha-mukherjeeagarwal.github.io/Aham-Bhramasmi/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Earth Jukebox" />
+    <meta property="og:title" content="Earth Jukebox: Change Mode" />
+    <meta
+      property="og:description"
+      content="Hear how the Earth changed: 256 night-lights cells from 2012 and 2023, with the 32 changed cells played as a short piece of music."
+    />
+    <meta property="og:url" content="https://diksha-mukherjeeagarwal.github.io/Aham-Bhramasmi/" />
+    <meta
+      property="og:image"
+      content="https://diksha-mukherjeeagarwal.github.io/Aham-Bhramasmi/assets/night-2023.png"
+    />
+    <meta property="og:image:alt" content="NASA night-lights frame for 2023, showing bright city clusters." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Earth Jukebox: Change Mode" />
+    <meta
+      name="twitter:description"
+      content="Hear how the Earth changed: 256 night-lights cells from 2012 and 2023, with the 32 changed cells played as a short piece of music."
+    />
+    <meta
+      name="twitter:image"
+      content="https://diksha-mukherjeeagarwal.github.io/Aham-Bhramasmi/assets/night-2023.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Earth Jukebox: Change Mode</title>
+    <script>
+      // Pre-paint accessibility boot. Keep these queries in sync with
+      // src/storage.js. This only applies the saved accessibility preference
+      // and the supported OS media queries; React takes over after mount.
+      (function () {
+        try {
+          var key = 'earth-jukebox-accessibility';
+          var saved = null;
+          try {
+            saved = window.localStorage.getItem(key);
+          } catch (_) {
+            // Storage may be blocked; fall through to the media queries.
+          }
+          var on = false;
+          if (saved === 'on') {
+            on = true;
+          } else if (saved !== 'off') {
+            var queries = [
+              '(forced-colors: active)',
+              '(prefers-contrast: more)',
+              '(inverted-colors: inverted)',
+              '(prefers-reduced-transparency: reduce)',
+              '(prefers-reduced-motion: reduce)'
+            ];
+            for (var i = 0; i < queries.length; i += 1) {
+              try {
+                if (window.matchMedia(queries[i]).matches) { on = true; break; }
+              } catch (_) {
+                // Unsupported media features do not match.
+              }
+            }
+          }
+          if (on) document.documentElement.classList.add('a11y-boot');
+        } catch (_) {
+          // A failed boot check must never block the app.
+        }
+      })();
+    </script>
+    <style>
+      /* Critical pre-paint background: matches the normal theme before styles.css loads. */
+      html {
+        background: #06090d;
+      }
+
+      @media (prefers-color-scheme: light) {
+        html {
+          background: #eef1f4;
+        }
+      }
+
+      /* Accessibility boot wins over both so the first paint is never bright. */
+      html.a11y-boot,
+      html.a11y-boot body {
+        background: #000;
+        background-image: none;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
